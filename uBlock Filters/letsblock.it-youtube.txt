@@ -1,3 +1,9 @@
+! Title: Let's Block It! -- YouTube
+! Homepage: https://letsblock.it
+! Version: 1.0.0
+! Expires: 1 day
+! Description: Let's Block It! YouTube filters.
+!
 ! ╔════════════════════════════════════════════╗
 ! ║ ╔╗      ╔╗     ╔╗  ╔╗         ╔╗       ╔╗  ║
 ! ║ ║║     ╔╝╚╗    ║║  ║║         ║║      ╔╝╚╗ ║
@@ -9,7 +15,6 @@
 !
 ! All credit for these filters go to the contributors to the "Let's Block It!" project on Github
 ! https://github.com/letsblockit/letsblockit
-! https://letsblock.it
 
 ! YouTube: filter out Shorts -- https://letsblock.it/filters/youtube-shorts
 www.youtube.com##ytd-guide-renderer a.yt-simple-endpoint path[d^="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33"]:upward(ytd-guide-entry-renderer)

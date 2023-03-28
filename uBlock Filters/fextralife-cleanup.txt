@@ -1,3 +1,9 @@
+! Title: Fextralife Cleanup
+! Homepage: https://github.com/AbyssalWolfe/scripts
+! Version: 1.0.0
+! Expires: 1 day
+! Description: Cleans up Fextralife.
+
 ! Filters by Abyssal Wolfe -- https://wolfe.tech
 
 ! Fextralife: wiki list cleanup

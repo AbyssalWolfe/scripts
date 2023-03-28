@@ -1,5 +1,10 @@
+! Title: 9anime Cleanup
+! Homepage: https://github.com/AbyssalWolfe/scripts
+! Version: 1.0.0
+! Expires: 1 day
+! Description: Cleans up 9anime. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/user.js/9anime-cleanup.user.js
+
 ! Filters by Abyssal Wolfe -- https://wolfe.tech
-! Companion UserScript found here: https://github.com/AbyssalWolfe/scripts/raw/main/user.js/9anime-cleanup.user.js
 
 ! 9Anime: header & footer cleanup
 /9anime\.(to|pl|id|gs)/###user, .socials

@@ -1,3 +1,9 @@
+! Title: Fandom Cleanup
+! Homepage: https://github.com/AbyssalWolfe/scripts
+! Version: 1.0.0
+! Expires: 1 day
+! Description: Cleans up Fandom.
+
 ! Filters by Abyssal Wolfe -- https://wolfe.tech
 
 ! Fandom: wiki page cleanup -- Based on "Fandom.com --- Cleaner Wikis Userscript" by G3T
