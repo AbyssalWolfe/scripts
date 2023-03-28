@@ -1,0 +1,56 @@
+! ╔════════════════════════════════════════════╗
+! ║ ╔╗      ╔╗     ╔╗  ╔╗         ╔╗       ╔╗  ║
+! ║ ║║     ╔╝╚╗    ║║  ║║         ║║      ╔╝╚╗ ║
+! ║ ║║ ╔══╗╚╗╔╝╔══╗║╚═╗║║ ╔══╗╔══╗║║╔╗  ╔╗╚╗╔╝ ║
+! ║ ║║ ║╔╗║ ║║ ║══╣║╔╗║║║ ║╔╗║║╔═╝║╚╝╝  ╠╣ ║║  ║
+! ║ ║╚╗║║═╣ ║╚╗╠══║║╚╝║║╚╗║╚╝║║╚═╗║╔╗╗╔╗║║ ║╚╗ ║
+! ║ ╚═╝╚══╝ ╚═╝╚══╝╚══╝╚═╝╚══╝╚══╝╚╝╚╝╚╝╚╝ ╚═╝ ║
+! ╚════════════════════════════════════════════╝
+!
+! All credit for these filters go to the contributors to the "Let's Block It!" project on Github
+! https://github.com/letsblockit/letsblockit
+! https://letsblock.it
+
+! YouTube: filter out Shorts -- https://letsblock.it/filters/youtube-shorts
+www.youtube.com##ytd-guide-renderer a.yt-simple-endpoint path[d^="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33"]:upward(ytd-guide-entry-renderer)
+www.youtube.com##ytd-mini-guide-renderer a.yt-simple-endpoint path[d^="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33"]:upward(ytd-mini-guide-entry-renderer)
+www.youtube.com##ytd-browse #dismissible ytd-rich-grid-slim-media[is-short]:upward(ytd-rich-section-renderer)
+www.youtube.com##ytd-browse[page-subtype="home"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-rich-item-renderer)
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-grid-video-renderer)
+www.youtube.com##ytd-search .ytd-thumbnail[href^="/shorts/"]:upward(ytd-video-renderer)
+www.youtube.com##ytd-watch-next-secondary-results-renderer .ytd-thumbnail[href^="/shorts/"]:upward(ytd-compact-video-renderer,ytd-shelf-renderer)
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer .ytd-thumbnail[href^="/shorts/"]:upward(ytd-item-section-renderer)
+www.youtube.com##ytd-browse[page-subtype="channels"] #contents.ytd-reel-shelf-renderer:upward(ytd-item-section-renderer)
+www.youtube.com##ytd-search #contents ytd-reel-shelf-renderer
+m.youtube.com##ytm-reel-shelf-renderer
+m.youtube.com##ytm-pivot-bar-renderer div.pivot-shorts:upward(ytm-pivot-bar-item-renderer)
+m.youtube.com##ytm-browse ytm-item-section-renderer ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-video-with-context-renderer)
+m.youtube.com##ytm-browse ytm-item-section-renderer ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-compact-video-renderer)
+m.youtube.com##ytm-search ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-compact-video-renderer)
+m.youtube.com##ytm-single-column-watch-next-results-renderer ytm-thumbnail-overlay-time-status-renderer span:has-text(/^(0:\d\d|1:0\d)$/):upward(ytm-video-with-context-renderer)
+
+! YouTube: filter out mixes and radios -- https://letsblock.it/filters/youtube-mixes
+www.youtube.com##ytd-browse ytd-rich-item-renderer:has(#video-title-link[href*="&start_radio=1"])
+www.youtube.com##ytd-search ytd-radio-renderer
+www.youtube.com##ytd-watch-next-secondary-results-renderer ytd-compact-radio-renderer
+www.youtube.com##ytd-player div.videowall-endscreen a[data-is-list=true]
+
+! YouTube: filter out upcoming videos and streams -- https://letsblock.it/filters/youtube-upcoming-videos
+www.youtube.com##ytd-browse ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]:upward(ytd-item-section-renderer)
+
+! YouTube: hide video recommendations -- https://letsblock.it/filters/youtube-recommendations
+www.youtube.com##ytd-browse[page-subtype="home"]
+www.youtube.com##.ytp-ce-element
+www.youtube.com##.ytp-endscreen-content
+
+! YouTube: search interface cleanups -- https://letsblock.it/filters/youtube-search-cleanup
+www.youtube.com##ytd-search ytd-item-section-renderer ytd-shelf-renderer:style(border: 2px dashed red !important)
+www.youtube.com##ytd-search ytd-item-section-renderer ytd-horizontal-card-list-renderer:style(border: 2px dashed red !important)
+
+! YouTube: video playback interface cleanups -- https://letsblock.it/filters/youtube-cleanup
+www.youtube.com###super-title
+www.youtube.com##.super-title
+www.youtube.com###chat:remove()
+youtube.com##+js(aeld, dblclick)

@@ -1,0 +1,28 @@
+! Filters by Abyssal Wolfe -- https://wolfe.tech
+! Companion UserScript found here: https://github.com/AbyssalWolfe/scripts/raw/main/user.js/9anime-cleanup.user.js
+
+! 9Anime: header & footer cleanup
+/9anime\.(to|pl|id|gs)/###user, .socials
+/9anime\.(to|pl|id|gs)/##.align-items-center.wrapper:style(height: 4rem !important)
+/9anime\.(to|pl|id|gs)/##footer:style(margin: 0 !important)
+/9anime\.(to|pl|id|gs)/##footer > .container:style(padding: 10px !important)
+
+! 9Anime: filter page cleanup
+/9anime\.(to|pl|id|gs)/##:matches-path(/filter) .sidebar
+/9anime\.(to|pl|id|gs)/##:matches-path(/filter) #body:style(padding-top: 1rem !important)
+
+! 9Anime: watch page cleanup
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-second > .watch-container.container > .aside-wrapper > .main, .mb-5.notice.alert-secondary.alert, .brating, .light.ctrl, .favourite.dropdown.ctrl, #w-servers > .tip
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) div.ctrl:matches-attr("data-target"="#w-report")
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) .servers > div:matches-attr("data-type"="dub")
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #w-episodes:has(.ep-range:matches-attr("data-range"="001-001"))
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-main > .watch-container.container > .aside-wrapper > .sidebar:has(.title:has-text("Trending"))
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #w-player:style(margin-left: 0 !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #w-episodes:style(margin-right: 10px !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-main > .watch-container.container > .aside-wrapper > .main:style(width: unset !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-main > .watch-container.container > .aside-wrapper > .sidebar:style(width: 100% !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-main > .watch-container.container > .aside-wrapper:style(flex-wrap: wrap !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-second > .watch-container.container > .aside-wrapper > .sidebar:style(width: 100% !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) #watch-second > .watch-container.container > .aside-wrapper > .sidebar > .w-side-section:style(margin-bottom: 15px !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) .sidebar .body .md.items.side.scaff:style(display: flex !important; flex-wrap: wrap !important)
+/9anime\.(to|pl|id|gs)/##:matches-path(/watch/) .sidebar .body .md.items.side.scaff > a.item:style(flex-basis: 22% !important; margin-right: 10px !important)
