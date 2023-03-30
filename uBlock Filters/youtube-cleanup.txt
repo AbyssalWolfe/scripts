@@ -2,7 +2,7 @@
 ! Homepage: https://github.com/AbyssalWolfe/scripts
 ! Version: 1.0.0
 ! Expires: 1 day
-! Description: Cleans up YouTube. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/user.js/youtube-cleanup.user.js
+! Description: Cleans up YouTube. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/youtube-cleanup.user.js
 
 ! Filters by Abyssal Wolfe -- https://wolfe.tech
 

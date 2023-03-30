@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name			YouTube Cleanup
 // @namespace		https://wolfe.tech
-// @updateURL		https://github.com/AbyssalWolfe/scripts/raw/main/user.js/youtube-cleanup.user.js
-// @downloadURL		https://github.com/AbyssalWolfe/scripts/raw/main/user.js/youtube-cleanup.user.js
+// @updateURL		https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/youtube-cleanup.user.js
+// @downloadURL		https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/youtube-cleanup.user.js
 // @version			1.0.0
 // @description		Cleans up YouTube. Companion uBlock filter located here: https://github.com/AbyssalWolfe/scripts/blob/main/uBlock%20Filters/youtube-cleanup.txt
 // @author			Abyssal Wolfe

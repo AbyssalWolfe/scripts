@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name			9Anime Cleanup
 // @namespace		https://wolfe.tech
-// @updateURL		https://github.com/AbyssalWolfe/scripts/raw/main/user.js/9anime-cleanup.user.js
-// @downloadURL		https://github.com/AbyssalWolfe/scripts/raw/main/user.js/9anime-cleanup.user.js
+// @updateURL		https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/9anime-cleanup.user.js
+// @downloadURL		https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/9anime-cleanup.user.js
 // @version			1.0.0
 // @description		Cleans up 9Anime. Companion uBlock filter located here: https://github.com/AbyssalWolfe/scripts/blob/main/uBlock%20Filters/9anime-cleanup.txt
 // @author			Abyssal Wolfe
