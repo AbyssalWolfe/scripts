@@ -1,6 +1,6 @@
 ! Title: Let's Block It! -- YouTube
 ! Homepage: https://letsblock.it
-! Version: 1.0.0
+! Version: 1.0.1
 ! Expires: 1 day
 ! Description: Let's Block It! YouTube filters.
 !
@@ -21,41 +21,59 @@ www.youtube.com##ytd-guide-renderer a.yt-simple-endpoint path[d^="M10 14.65v-5.3
 www.youtube.com##ytd-mini-guide-renderer a.yt-simple-endpoint path[d^="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33"]:upward(ytd-mini-guide-entry-renderer)
 www.youtube.com##ytd-browse #dismissible ytd-rich-grid-slim-media[is-short]:upward(ytd-rich-section-renderer)
 www.youtube.com##ytd-browse[page-subtype="home"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-rich-item-renderer)
-www.youtube.com##ytd-browse[page-subtype="subscriptions"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-grid-video-renderer)
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-grid-video-renderer,ytd-rich-item-renderer)
 www.youtube.com##ytd-search .ytd-thumbnail[href^="/shorts/"]:upward(ytd-video-renderer)
 www.youtube.com##ytd-watch-next-secondary-results-renderer .ytd-thumbnail[href^="/shorts/"]:upward(ytd-compact-video-renderer,ytd-shelf-renderer)
+www.youtube.com##ytd-watch-next-secondary-results-renderer ytd-reel-shelf-renderer
 www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer .ytd-thumbnail[href^="/shorts/"]:upward(ytd-item-section-renderer)
 www.youtube.com##ytd-browse[page-subtype="channels"] #contents.ytd-reel-shelf-renderer:upward(ytd-item-section-renderer)
+www.youtube.com##ytd-browse[page-subtype="trending"] .ytd-thumbnail[href^="/shorts/"]:upward(ytd-video-renderer)
 www.youtube.com##ytd-search #contents ytd-reel-shelf-renderer
 m.youtube.com##ytm-reel-shelf-renderer
 m.youtube.com##ytm-pivot-bar-renderer div.pivot-shorts:upward(ytm-pivot-bar-item-renderer)
 m.youtube.com##ytm-browse ytm-item-section-renderer ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-video-with-context-renderer)
 m.youtube.com##ytm-browse ytm-item-section-renderer ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-compact-video-renderer)
-m.youtube.com##ytm-search ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-compact-video-renderer)
+m.youtube.com##ytm-search ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]:upward(ytm-compact-video-renderer,ytm-video-with-context-renderer)
 m.youtube.com##ytm-single-column-watch-next-results-renderer ytm-thumbnail-overlay-time-status-renderer span:has-text(/^(0:\d\d|1:0\d)$/):upward(ytm-video-with-context-renderer)
+youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display:contents !important;)
 
 ! YouTube: filter out mixes and radios -- https://letsblock.it/filters/youtube-mixes
-www.youtube.com##ytd-browse ytd-rich-item-renderer:has(#video-title-link[href*="&start_radio=1"])
+www.youtube.com##ytd-browse #video-title-link[href*="&start_radio=1"]:upward(ytd-rich-item-renderer)
 www.youtube.com##ytd-search ytd-radio-renderer
 www.youtube.com##ytd-watch-next-secondary-results-renderer ytd-compact-radio-renderer
 www.youtube.com##ytd-player div.videowall-endscreen a[data-is-list=true]
+m.youtube.com##ytm-browse ytm-radio-renderer:upward(ytm-rich-item-renderer)
+m.youtube.com##ytm-search ytm-compact-radio-renderer
+youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display:contents !important;)
 
 ! YouTube: filter out upcoming videos and streams -- https://letsblock.it/filters/youtube-upcoming-videos
 www.youtube.com##ytd-browse ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
 www.youtube.com##ytd-browse ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
 www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]:upward(ytd-item-section-renderer)
+youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display:contents !important;)
 
 ! YouTube: hide video recommendations -- https://letsblock.it/filters/youtube-recommendations
 www.youtube.com##ytd-browse[page-subtype="home"]
+m.youtube.com##ytm-browse div[tab-identifier="FEwhat_to_watch"]
 www.youtube.com##.ytp-ce-element
 www.youtube.com##.ytp-endscreen-content
 
 ! YouTube: search interface cleanups -- https://letsblock.it/filters/youtube-search-cleanup
-www.youtube.com##ytd-search ytd-item-section-renderer ytd-shelf-renderer:style(border: 2px dashed red !important)
-www.youtube.com##ytd-search ytd-item-section-renderer ytd-horizontal-card-list-renderer:style(border: 2px dashed red !important)
+www.youtube.com##ytd-search ytd-item-section-renderer ytd-shelf-renderer
+www.youtube.com##ytd-search ytd-item-section-renderer ytd-horizontal-card-list-renderer
 
 ! YouTube: video playback interface cleanups -- https://letsblock.it/filters/youtube-cleanup
+www.youtube.com###description #info a[href^="/hashtag/"]
 www.youtube.com###super-title
 www.youtube.com##.super-title
+m.youtube.com##.standalone-collection-badge a[href^="/hashtag/"]
+m.youtube.com##ytm-video-description-header-renderer button-view-model a[href^="/hashtag/"]
+www.youtube.com###description .ytd-watch-metadata #items:has(.ytd-video-description-music-section-renderer)
+m.youtube.com##ytm-video-description-music-section-renderer
+www.youtube.com###structured-description ytd-video-description-infocards-section-renderer
+m.youtube.com##.modern-sd-container ytm-video-description-infocards-section-renderer
+www.youtube.com###structured-description ytd-horizontal-card-list-renderer.ytd-structured-description-content-renderer
+m.youtube.com##.modern-sd-container ytm-horizontal-card-list-renderer
 www.youtube.com###chat:remove()
 youtube.com##+js(aeld, dblclick)
+www.youtube.com###cinematics.ytd-watch-flexy:remove()
