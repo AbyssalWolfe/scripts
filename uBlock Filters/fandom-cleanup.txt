@@ -7,7 +7,7 @@
 ! Filters by Abyssal Wolfe -- https://wolfe.tech
 
 ! Fandom: wiki page cleanup -- Based on "Fandom.com --- Cleaner Wikis Userscript" by G3T
-/.*[^w]{3}\.fandom\.com/##.global-navigation, #mixed-content-footer, .global-footer, .page-side-tools, .ph-registration-buttons, .page-header__actions, .page-header__top, .page__right-rail, #articleComments, .render-wiki-recommendations, .mainpage-box-twitter, #p-lang, .wds-is-collapsed.page-footer__languages.wds-collapsible-panel
+/.*[^w]{3}\.fandom\.com/##.global-navigation, #mixed-content-footer, .global-footer, .page-side-tools, .ph-registration-buttons, .page-header__actions, .page-header__top, .page__right-rail, #articleComments, .render-wiki-recommendations, .mainpage-box-twitter, #p-lang, .wds-is-collapsed.page-footer__languages.wds-collapsible-panel, #age-gate
 /.*[^w]{3}\.fandom\.com/##.wds-button-group.wiki-tools > a.wds-is-secondary.wds-button:matches-attr("title"="Discuss")
 /.*[^w]{3}\.fandom\.com/##.resizable-container:style(margin: 0 auto 16px !important)
 /.*[^w]{3}\.fandom\.com/##.resizable-container:matches-css(max-width: 100%):style(margin: 0 16px 16px !important)
