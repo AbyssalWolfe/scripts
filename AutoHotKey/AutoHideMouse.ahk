@@ -1,6 +1,6 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance force
-SendMode Input
+SendMode "Input"
 
 Timeout := A_TickCount
 LastActivityTime := A_TickCount
