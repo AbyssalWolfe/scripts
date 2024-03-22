@@ -1,6 +1,7 @@
+[uBlock Origin]
 ! Title: Fandom Cleanup
 ! Homepage: https://github.com/AbyssalWolfe/scripts
-! Version: 1.0.0
+! Version: 1.0.1
 ! Expires: 1 day
 ! Description: Cleans up Fandom.
 

@@ -1,6 +1,7 @@
+[uBlock Origin]
 ! Title: YouTube Cleanup
 ! Homepage: https://github.com/AbyssalWolfe/scripts
-! Version: 1.0.0
+! Version: 1.0.1
 ! Expires: 1 day
 ! Description: Cleans up YouTube. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/youtube-cleanup.user.js
 

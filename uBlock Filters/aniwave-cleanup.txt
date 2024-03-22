@@ -1,6 +1,7 @@
+[uBlock Origin]
 ! Title: Aniwave Cleanup
 ! Homepage: https://github.com/AbyssalWolfe/scripts
-! Version: 1.1.0
+! Version: 1.1.1
 ! Expires: 1 day
 ! Description: Cleans up Aniwave. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/aniwave-cleanup.user.js
 
