@@ -1,0 +1,20 @@
+[uBlock Origin]
+! Title: Fextralife Cleanup
+! Homepage: https://github.com/AbyssalWolfe/scripts
+! Version: 1.0.1
+! Expires: 1 day
+! Description: Cleans up Fextralife.
+
+! Filters by Abyssal Wolfe -- https://wolfe.tech
+
+! Fextralife: wiki list cleanup
+www.wiki.fextralife.com##.sliderload, #wikisRss, #fex-account > .btn-group-sm.btn-group, .wiki-footer-nav
+www.wiki.fextralife.com##h3.text-center.hero-heading:has-text("Featured Wikis")
+
+! Fextralife: wiki page cleanup -- Based on "Fextralife Fixes" by MashedPears
+/.*[^w]{3}\.wiki\.fextralife\.com/##.navbar-right.navbar-nav.nav, .page-segment-btns, #discussions-section, .footer-sticky, br, footer, #form-header, .top-right-vault.vault-loder
+/.*[^w]{3}\.wiki\.fextralife\.com/###wiki-content-block > div:has-text("Check out our other Wikis:")
+/.*[^w]{3}\.wiki\.fextralife\.com/###wiki-content-block > p:has-text("Become a VIP")
+/.*[^w]{3}\.wiki\.fextralife\.com/##.ios-fix > .hidden-xs:has-text("Chat")
+/.*[^w]{3}\.wiki\.fextralife\.com/##.fex-main:style(min-height: 0 !important; margin: 16px auto !important)
+/.*[^w]{3}\.wiki\.fextralife\.com/###wrapper:style(padding-left: 0 !important; transition: none !important)

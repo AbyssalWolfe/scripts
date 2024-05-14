@@ -1,0 +1,27 @@
+[uBlock Origin]
+! Title: YouTube Cleanup
+! Homepage: https://github.com/AbyssalWolfe/scripts
+! Version: 1.0.1
+! Expires: 1 day
+! Description: Cleans up YouTube. Companion userscript located here: https://github.com/AbyssalWolfe/scripts/raw/main/userscripts/youtube-cleanup.user.js
+
+! Filters by Abyssal Wolfe -- https://wolfe.tech
+
+! YouTube: header & sidebar cleanup
+www.youtube.com##ytd-notification-topbar-button-renderer.ytd-masthead.style-scope, .style-default.ytd-masthead.style-scope, #voice-search-button, #guide-links-primary, #guide-links-secondary, #copyright, #collapser-item, ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer.style-scope, ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(1), ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(3), ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(4), ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(5), #expandable-items > ytd-guide-entry-renderer:last-of-type, #content > ytd-mini-guide-renderer
+www.youtube.com##ytd-app:style(--ytd-mini-guide-width: 0 !important)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:style(border: none !important)
+
+! YouTube: channel page cleanup
+www.youtube.com##:matches-path(/@) #links-holder, #sponsor-button, #primary > .ytd-two-column-browse-results-renderer.style-scope > #header, #right, #left
+www.youtube.com##:matches-path(/@) tp-yt-paper-tab.ytd-c4-tabbed-header-renderer.style-scope:has(.tab-title:has-text("Home"))
+www.youtube.com##:matches-path(/@) tp-yt-paper-tab.ytd-c4-tabbed-header-renderer.style-scope:has(.tab-title:has-text("Shorts"))
+www.youtube.com##:matches-path(/@) tp-yt-paper-tab.ytd-c4-tabbed-header-renderer.style-scope:has(.tab-title:has-text("Community"))
+
+! YouTube: watch page cleanup
+www.youtube.com##:matches-path(/watch) #sponsor-button, yt-related-chip-cloud-renderer.ytd-watch-next-secondary-results-renderer.style-scope, #simple-box.ytd-comments-header-renderer.style-scope, #button-shape > .yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next
+www.youtube.com##:matches-path(/watch) ytd-button-renderer.ytd-menu-renderer.style-scope:has-text("Share")
+www.youtube.com##:matches-path(/watch) ytd-button-renderer.ytd-menu-renderer.style-scope:has-text("Thanks")
+www.youtube.com##:matches-path(/watch) ytd-button-renderer.ytd-menu-renderer.style-scope:has-text("Clip")
+www.youtube.com##:matches-path(/watch) ytd-button-renderer.ytd-menu-renderer.style-scope:has-text("Save")
+www.youtube.com##:matches-path(/watch) ytd-comments-header-renderer:style(margin-bottom: 0 !important)
