@@ -12,25 +12,21 @@ If(!A_IsAdmin) {
 	ExitApp
 }
 
-SetTimer(CleanStartMenu, 5000)
-
-CleanStartMenu() {
-	SystemDir := "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\"
-	UserDir := A_AppData "\Microsoft\Windows\Start Menu\Programs\"
-	Loop Files, SystemDir "*", "D" {
-		CheckFile(SystemDir, A_LoopFileName)
-	}
-	Loop Files, UserDir "*", "D" {
-		CheckFile(UserDir, A_LoopFileName)
-	}
-}
-
-CheckFile(dir, filename) {
-	If(filename ~= ".*\[GOG\.com\]") {
-		If(InStr(FileGetAttrib(dir filename), "D")) {
-			DirDelete(dir filename, true)
-		} Else {
-			FileDelete(dir filename)
+CheckFiles(dir) {
+	Loop Files, dir "*", "D" {
+		If(A_LoopFileName ~= ".*\[GOG\.com\]") {
+			If(InStr(FileGetAttrib(dir A_LoopFileName), "D")) {
+				DirDelete(dir A_LoopFileName, true)
+			} Else {
+				FileDelete(dir A_LoopFileName)
+			}
 		}
 	}
 }
+
+CleanStartMenu() {
+	CheckFiles("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\")
+	CheckFiles(A_AppData "\Microsoft\Windows\Start Menu\Programs\")
+}
+
+SetTimer(CleanStartMenu, 5000)

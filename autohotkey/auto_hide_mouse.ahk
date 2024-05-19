@@ -4,7 +4,6 @@ SendMode("Input")
 
 Timeout := A_TickCount
 LastActivityTime := A_TickCount
-SetTimer(CheckIdleTime, 1000)
 
 CheckIdleTime() {
 	Global LastActivityTime
@@ -18,3 +17,5 @@ CheckIdleTime() {
 
 	LastActivityTime := CurrentTime
 }
+
+SetTimer(CheckIdleTime, 1000)
