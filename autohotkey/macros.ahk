@@ -3,22 +3,22 @@
 SendMode("Input")
 DetectHiddenWindows(True)
 
-PID_list := Map()
+PID_List := Map()
 
 Loop {
-	Loop Files, A_WorkingDir "\Macros\*.ahk" {
-		If(PID_list.Has(A_LoopFileName)) {
-			If(ProcessExist(PID_list[A_LoopFileName]) && WinExist(A_LoopFileName)) {
+	Loop Files, "Macros\*.ahk" {
+		If(PID_List.Has(A_LoopFileName)) {
+			If(ProcessExist(PID_List[A_LoopFileName]) && WinExist(A_LoopFileName)) {
 				Break
-			} Else If(!ProcessExist(PID_list[A_LoopFileName])) {
+			} Else If(!ProcessExist(PID_List[A_LoopFileName])) {
 				If(WinExist(A_LoopFileName)) {
 					WinClose(A_LoopFileName)
 				}
-				PID_list.Delete(A_LoopFileName)
+				PID_List.Delete(A_LoopFileName)
 			}
 		}
 		If(PID := ProcessExist(SubStr(A_LoopFileName, 1, -4) ".exe")) {
-			PID_list[A_LoopFileName] := PID
+			PID_List[A_LoopFileName] := PID
 			Try {
 				Run(A_LoopFileFullPath, A_WorkingDir "\Macros")
 			} Catch {

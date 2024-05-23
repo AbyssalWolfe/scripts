@@ -9,11 +9,7 @@ CheckIdleTime() {
 	Global LastActivityTime
 	CurrentTime := A_TickCount
 
-	If(CurrentTime - LastActivityTime >= Timeout * 1000) {
-		DllCall("ShowCursor", "int", 0)
-	} Else {
-		DllCall("ShowCursor", "int", 1)
-	}
+	(CurrentTime - LastActivityTime >= Timeout * 1000) ? DllCall("ShowCursor", "int", 0) : DllCall("ShowCursor", "int", 1)
 
 	LastActivityTime := CurrentTime
 }
