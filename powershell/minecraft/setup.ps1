@@ -69,7 +69,7 @@ Sleep 1
 Stop-Process -Name "prismlauncher"
 
 Set-Location -Path "../../"
-Remove-Item -Path "minecraft_setup.ps1"
+Remove-Item -Path "setup.ps1"
 
 Clear
 Write-Host "Done"
