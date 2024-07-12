@@ -58,7 +58,12 @@ ForEach($script in @("configure.ps1", "pre-launch.ps1", "post-exit.ps1")) {
 	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script" -OutFile $script
 }
 
-Set-Location -Path "../launcher"
+Set-Location -Path "../"
+
+Write-Host "Creating shared resource README..."
+Set-Content -Path "shared/README.txt" -Value "This folder is for shared resources, such as texture/resource packs, shader packs and data packs.`n`nFor pre 1.6 texture packs or resource packs you only want to show on specific versions, create a folder inside the 'resourcepacks' folder named after the major version number (e.g. '1.8' or '1.17', but not '1.8.9' or '1.17.1') and place the pack in there."
+
+Set-Location -Path "launcher"
 Start-Process -FilePath "./prismlauncher.exe"
 Sleep 1
 Stop-Process -Name "prismlauncher"
