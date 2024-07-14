@@ -18,6 +18,10 @@ ForEach($script in @("configure.ps1", "pre-launch.ps1", "post-exit.ps1")) {
 	If((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script").Content -notmatch (Get-Content -Path $script)) {
 		Write-Host "Updating $script..."
 		Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script" -OutFile $script
+		If($script -eq "pre-launch.ps1") {
+			[void](New-Object -ComObject Wscript.Shell).Popup("Pre-launch script updated, relaunch required.")
+			Exit(1)
+		}
 	}
 }
 
@@ -91,5 +95,3 @@ Get-ChildItem -Path "shared/shaderpacks" -Filter "*.zip" | ForEach-Object {
 	[void](New-Item -ItemType SymbolicLink -Force -Path "$env:INST_MC_DIR/shaderpacks/$_" -Target "shared/shaderpacks/$_")
 }
 [void](New-Item -ItemType SymbolicLink -Force -Path "$env:INST_MC_DIR/servers.dat" -Target "shared/servers.dat")
-
-Set-Location -Path $env:INST_MC_DIR
