@@ -15,7 +15,7 @@ Set-Location -Path "../../../scripts"
 
 Write-Host "Checking for script updates..."
 ForEach($script in @("configure.ps1", "pre-launch.ps1", "post-exit.ps1")) {
-	If((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script").Content -notmatch (Get-Content -Path $script)) {
+	If((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script").RawContent -notmatch (Get-Content -Path $script)) {
 		Write-Host "Updating $script..."
 		Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AbyssalWolfe/scripts/master/powershell/minecraft/$script" -OutFile $script
 		If($script -eq "pre-launch.ps1") {
