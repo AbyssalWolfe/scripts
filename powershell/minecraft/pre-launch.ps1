@@ -50,7 +50,7 @@ Set-Location -Path "../"
 
 If((Get-Content -Path "$env:INST_DIR/instance.cfg" | Select-String -Pattern "OverrideJavaLocation=") -match "OverrideJavaLocation=false") {
 	Write-Host "Spawning new process to configure the instance post-exit, relaunch after configuration."
-	Start-Process -FilePath "powershell" -ArgumentList "-File scripts/configure.ps1" -Style Hidden
+	Start-Process -FilePath "powershell" -ArgumentList "-File scripts/configure.ps1"
 	Exit(1)
 }
 
