@@ -45,4 +45,4 @@ fi
 pkill mpv
 
 # Create MPV instance
-nohup mpv --no-terminal --input-ipc-server=/tmp/mpv.sock "$@" >/dev/null
+nohup mpv --no-terminal --input-ipc-server=/tmp/mpv.sock "$@" >/dev/null &
