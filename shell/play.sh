@@ -14,7 +14,7 @@
 # Check for existing MPV instance using mpv.sock
 if [ -e "/tmp/mpv.sock" ] && echo "{\"command\": [\"get_version\"]}" | socat - /tmp/mpv.sock | grep -q "success"; then
 	# Clear played files from playlist
-	while [ "$(echo "{\"command\": [\"get_property\", \"playlist-pos\"]}" | socat - /tmp/mpv.sock | jq '.data')" -ne 0 ]; do
+	while [ "$(echo "{\"command\": [\"get_property\", \"playlist-pos\"]}" | socat - /tmp/mpv.sock | jq '.data')" -gt 0 ]; do
 		echo "{\"command\": [\"playlist-remove\", \"0\"]}" | socat - /tmp/mpv.sock
 	done
 
