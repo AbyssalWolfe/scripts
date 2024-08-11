@@ -14,17 +14,14 @@
 # Check for existing MPV instance using mpv.sock
 if [ -e "/tmp/mpv.sock" ] && echo "{\"command\": [\"get_version\"]}" | socat - /tmp/mpv.sock | grep -q "success"; then
 	# Clear played files from playlist
-	playlist_length=$(echo "{\"command\": [\"get_property\", \"playlist-count\"]}" | socat - /tmp/mpv.sock | jq '.data')
-	playlist_position=$(echo "{\"command\": [\"get_property\", \"playlist-pos\"]}" | socat - /tmp/mpv.sock | jq '.data')
-	playing_eof=$(echo "{\"command\": [\"get_property\", \"eof-reached\"]}" | socat - /tmp/mpv.sock | jq '.data')
-
-	for i in $(seq 0 "$((playlist_length - 1))"); do
-		if [ "$i" -eq "$playlist_position" ] && [ "$playing_eof" != "true" ]; then
-			break
-		fi
-		echo "{\"command\": [\"playlist-remove\", \"$i\"]}" | socat - /tmp/mpv.sock
+	while [ "$(echo "{\"command\": [\"get_property\", \"playlist-pos\"]}" | socat - /tmp/mpv.sock | jq '.data')" -ne 0 ]; do
+		echo "{\"command\": [\"playlist-remove\", \"0\"]}" | socat - /tmp/mpv.sock
 	done
-	unset playlist_length playlist_position playing_eof i
+
+	# Clear current file if EOF reached
+	if [ "$(echo "{\"command\": [\"get_property\", \"eof-reached\"]}" | socat - /tmp/mpv.sock | jq '.data')" = "true" ]; then
+		echo "{\"command\": [\"playlist-remove\", \"0\"]}" | socat - /tmp/mpv.sock
+	fi
 
 	# Append to playlist
 	for url in "$@"; do
