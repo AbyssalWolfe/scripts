@@ -44,7 +44,7 @@ CleanDir(Directory, Pattern, MoveDirectory?, MovePattern?) {
 ; Main cleanup function
 Cleanup() {
 	; Which shortcuts to keep in the Start Menu
-	StartMenuWhitelist := "File Explorer\.lnk|Firefox\.lnk|Notepad\+\+\.lnk|GOG GALAXY\.lnk|Steam\.lnk|Epic Games Launcher\.lnk|Battle\.net\.lnk|EA\.lnk|Ubisoft Connect\.lnk|Battlestate Games Launcher\.lnk|Vortex\.lnk"
+	StartMenuWhitelist := "File Explorer\.lnk|Firefox\.lnk|Notepad\+\+\.lnk|MPos\.lnk|Sandboxie\.lnk|Steam Desktop Authenticator\.lnk|GOG GALAXY\.lnk|Steam\.lnk|Epic Games Launcher\.lnk|Battle\.net\.lnk|EA\.lnk|Ubisoft Connect\.lnk|Battlestate Games Launcher\.lnk|Intrepid Studios Launcher\.lnk|Prism Launcher\.lnk|Nolvus\.lnk|Vortex\.lnk|Unity Mod Manager\.lnk|BG3 Mod Manager\.lnk|Mod Finder\.lnk"
 
 	; Clean up the Start Menu
 	CleanDir([A_ProgramsCommon, A_Programs], "^.*$(?<!Startup|desktop\.ini|" StartMenuWhitelist ")", A_Programs, StartMenuWhitelist)
