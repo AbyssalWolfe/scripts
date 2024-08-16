@@ -55,3 +55,6 @@ Cleanup() {
 
 ; Run the cleanup function every 5 seconds
 SetTimer(Cleanup, 5000)
+
+; Kill switch
+F24::ExitApp

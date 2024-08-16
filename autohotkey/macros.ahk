@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance Force
 SendMode("Input")
 DetectHiddenWindows(True)
@@ -33,4 +33,5 @@ Loop {
 	Sleep(5000)
 } Until GetKeyState("F24")
 
+; Kill switch
 F24::ExitApp
