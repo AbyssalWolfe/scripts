@@ -21,12 +21,12 @@ Loop {
 		}
 
 		; If the macro is not running, start it
-		If(PID := ProcessExist(SubStr(A_LoopFileName, 1, -4) ".exe")) {
+		If(PID := ProcessExist(SubStr(A_LoopFileName, 1, -4) . ".exe")) {
 			PID_List[A_LoopFileName] := PID
 			Try {
-				Run(A_LoopFileFullPath, A_WorkingDir "\Macros")
+				Run(A_LoopFileFullPath, A_WorkingDir . "\Macros")
 			} Catch {
-				MsgBox(A_LoopFileName " doesn't exist.")
+				MsgBox(A_LoopFileName . " doesn't exist.")
 			}
 		}
 	}

@@ -6,7 +6,7 @@ SendMode("Input")
 If(!A_IsAdmin) {
 	If(!RegexMatch(DllCall("GetCommandLine", "str"), " /restart(?!\S)")) {
 		Try {
-			RunWait("*RunAs `"" A_AhkPath "`" /restart `"" A_ScriptFullPath "`"")
+			RunWait("*RunAs `"" . A_AhkPath . "`" /restart `"" . A_ScriptFullPath . "`"")
 		}
 	}
 	MsgBox("This AHK script requires administrator privileges, please run as administrator.")
@@ -47,7 +47,7 @@ Cleanup() {
 	StartMenuWhitelist := "File Explorer\.lnk|Firefox\.lnk|Notepad\+\+\.lnk|MPos\.lnk|Sandboxie\.lnk|Steam Desktop Authenticator\.lnk|GOG GALAXY\.lnk|Steam\.lnk|Epic Games Launcher\.lnk|Battle\.net\.lnk|EA\.lnk|Ubisoft Connect\.lnk|Battlestate Games Launcher\.lnk|Intrepid Studios Launcher\.lnk|Prism Launcher\.lnk|Nolvus\.lnk|Vortex\.lnk|Unity Mod Manager\.lnk|BG3 Mod Manager\.lnk|Mod Finder\.lnk"
 
 	; Clean up the Start Menu
-	CleanDir([A_ProgramsCommon, A_Programs], "^.*$(?<!Startup|desktop\.ini|" StartMenuWhitelist ")", A_Programs, StartMenuWhitelist)
+	CleanDir([A_ProgramsCommon, A_Programs], "^.*$(?<!Startup|desktop\.ini|" . StartMenuWhitelist . ")", A_Programs, StartMenuWhitelist)
 
 	; Clean up the Desktop
 	CleanDir([A_DesktopCommon, A_Desktop], "^.*$(?<!desktop\.ini)",,)
