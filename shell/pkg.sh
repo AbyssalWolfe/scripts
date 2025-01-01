@@ -51,15 +51,19 @@ global | g)
 		shift
 		case $1 in
 		os | o)
+			shift
 			$osI "$@"
 			;;
 		python | py)
+			shift
 			sudo pip install "$@"
 			;;
 		ruby | r)
+			shift
 			gem install "$@"
 			;;
 		node | n)
+			shift
 			$npm add -g "$@"
 			;;
 		*)
@@ -88,15 +92,19 @@ global | g)
 		shift
 		case $1 in
 		os | o)
+			shift
 			$osR "$@"
 			;;
 		python | py)
+			shift
 			sudo pip uninstall "$@"
 			;;
 		ruby | r)
+			shift
 			gem uninstall "$@"
 			;;
 		node | n)
+			shift
 			$npm uninstall -g "$@"
 			;;
 		*)
@@ -108,15 +116,19 @@ global | g)
 		shift
 		case $1 in
 		os | o)
+			shift
 			$osS "$@"
 			;;
 		python | py)
+			shift
 			pip search "$@"
 			;;
 		ruby | r)
+			shift
 			gem search "$@"
 			;;
 		node | n)
+			shift
 			$npm search "$@"
 			;;
 		*)
