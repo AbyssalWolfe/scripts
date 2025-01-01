@@ -66,27 +66,43 @@ global | g)
 			shift
 			$npm add -g "$@"
 			;;
+		yazi | y)
+			shift
+			ya pack -a "$@"
+			;;
 		*)
-			printf "Third parameter should be one of:\nos (o), python (py), ruby (r), node (n)"
+			printf "Third parameter should be one of:\nos (o), python (py), ruby (r), node (n), yazi (y)"
 			;;
 		esac
 		;;
 	update | u)
 		shift
-		printf "Updating system packages...\n"
-		$osU
-		if [ "$(command -v pip)" != "" ]; then
+		case $1 in
+		os | o)
+			printf "Updating system packages...\n"
+			$osU
+			;;
+		python | py)
 			printf "Updating pip packages...\n"
 			pip --disable-pip-version-check list --outdated --format=json | python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" | xargs -n1 sudo pip install --upgrade
-		fi
-		if [ "$(command -v gem)" != "" ]; then
+			;;
+		ruby | r)
 			printf "Updating gem packages...\n"
 			gem update
-		fi
-		if [ "$(command -v $npm)" != "" ]; then
+			;;
+		node | n)
 			printf "Updating npm packages...\n"
 			$npm update -g
-		fi
+			;;
+		yazi | y)
+			shift
+			printf "Updating yazi packages...\n"
+			ya pack -u
+			;;
+		*)
+			printf "Third parameter should be one of:\nos (o), python (py), ruby (r), node (n), yazi (y)"
+			;;
+		esac
 		;;
 	remove | r)
 		shift
